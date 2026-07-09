@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafiq Bhatti - Premium Resume Builder & Studio Workspace</title>
+    
+    <!-- Tailwind CSS for utility-first responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for high-quality developer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Premium Fonts: Plus Jakarta Sans (UI headers) & Inter (UI body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Customizing Tailwind to implement a highly premium theme palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1', // Indigo Accent
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            950: '#070a13' // Premium Dark background base
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+   <style>
+        /* CUSTOM UI SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.25);
+            border-radius: 99px;
+            border: 2px solid transparent;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.45);
+        }
+
+        /* DYNAMIC ACCENT ENGINE & TRANSPARENT PALETTES */
+        /* Dark Theme Variables (Default) */
+        :root {
+            --resume-bg: rgba(13, 18, 33, 0.5);       /* Dark Transparent Glass */
+            --resume-text: #cbd5e1;                    /* Light Gray Text */
+            --resume-accent: #ffffff;                  /* Bold Headings White */
+            --resume-accent-bg: rgba(255, 255, 255, 0.07);
+            --resume-title: #38bdf8;                   /* Light Sky Blue */
+            --resume-border: rgba(255, 255, 255, 0.1); /* Subtle White Border */
+        }
+
+        /* Light Theme Variables (Auto-applied when body has .light-theme) */
+        body.light-theme {
+            --resume-bg: rgba(255, 255, 255, 0.6);    /* Light Transparent Glass */
+            --resume-text: #334155;                    /* Dark Gray Text */
+            --resume-accent: #0f172a;                  /* Bold Headings Dark Slate */
+            --resume-accent-bg: rgba(99, 102, 241, 0.05);
+            --resume-title: #4f46e5;                   /* Deep Indigo */
+            --resume-border: rgba(99, 102, 241, 0.15); /* Indigo Tint Border */
+        }
+
+        /* CORE BASE TRANSITIONS & PALETTES */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent; 
+            color: #f1f5f9;
+            transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        body.light-theme {
+            color: #0f172a;
+        }
+
+        /* PREMIUM GLASSMORPHISM SYSTEM (TRANSPARENT FORMS & NAVS) */
+        .glass-nav {
+            background: rgba(7, 10, 19, 0.45);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+        body.light-theme .glass-nav {
+            background: rgba(255, 255, 255, 0.45);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .glass-panel {
+            background: rgba(13, 18, 33, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body.light-theme .glass-panel {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            box-shadow: 0 15px 45px -12px rgba(99, 102, 241, 0.06);
+        }
+
+        /* HIGH-END INTERACTIVE FORM INPUTS */
+        .glass-input {
+            background: rgba(7, 10, 19, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-input:focus {
+            background: rgba(7, 10, 19, 0.75);
+            border-color: #6366f1;
+            box-shadow: 0 0 14px rgba(99, 102, 241, 0.3);
+            outline: none;
+        }
+        body.light-theme .glass-input {
+            background: rgba(248, 250, 252, 0.65);
+            border: 1px solid rgba(99, 102, 241, 0.18);
+            color: #0f172a;
+        }
+        body.light-theme .glass-input:focus {
+            background: #ffffff;
+            border-color: #4f46e5;
+            box-shadow: 0 0 16px rgba(79, 70, 229, 0.2);
+        }
+
+        /* ACCORDIONS & INTERACTIVE HEADERS */
+        .glass-details {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-details:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        body.light-theme .glass-details {
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px solid rgba(99, 102, 241, 0.08);
+        }
+        body.light-theme .glass-details:hover {
+            background: rgba(99, 102, 241, 0.06);
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .caret-icon {
+            transform: rotate(180deg);
+            color: #6366f1;
+        }
+
+        /* VIRTUAL PRINTABLE PAPER DESIGN (A4 PROPORTIONED) */
+        .paper-preview {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm;
+            margin: 0 auto;
+            background: var(--resume-bg);                 /* Made fully transparent & adaptive */
+            backdrop-filter: blur(10px);                  /* Smooth Glass blur effect */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--resume-border);       /* Adaptive border */
+            color: var(--resume-text);                    /* Adaptive text color */
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
+            box-sizing: border-box;
+            position: relative;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+        body.light-theme .paper-preview {
+            box-shadow: 0 20px 50px -10px rgba(99, 102, 241, 0.08);
+        }
+
+        /* PRINT-SAFE PROFESSIONAL TYPOGRAPHY FOR RESUME CONTAINER */
+        .resume-body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.45;
+            color: var(--resume-text);
+            background-color: transparent; /* Background ko transparent kiya */
+        }
+
+        .resume-header {
+            text-align: center;
+            border-bottom: 2px solid var(--resume-accent);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .resume-name {
+            font-size: 24pt;
+            font-weight: 800;
+            color: var(--resume-accent);
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .resume-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--resume-title); 
+            margin: 0 0 10px 0;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .resume-contact {
+            font-size: 9.5pt;
+            color: var(--resume-text);
+            opacity: 0.85;
+            margin: 4px 0;
+        }
+
+        .resume-contact a {
+            color: var(--resume-title);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .resume-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .resume-section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--resume-accent);
+            border-bottom: 1.5px solid var(--resume-border);
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .resume-summary-text {
+            color: var(--resume-text);
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        /* Clean skills table formatting */
+        .resume-skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+        }
+
+        .resume-skills-table td {
+            padding: 5px 8px;
+            vertical-align: top;
+            border-bottom: 1px solid var(--resume-border);
+        }
+
+        .resume-skills-category {
+            font-weight: 700;
+            color: var(--resume-accent);
+            width: 25%;
+            font-size: 9.5pt;
+        }
+
+        .resume-skills-list {
+            color: var(--resume-text);
+            width: 75%;
+            font-size: 9.5pt;
+        }
+
+        .resume-project-block {
+            margin-bottom: 14px;
+        }
+
+        .resume-project-header {
+            display: table;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .resume-project-title {
+            display: table-cell;
+            font-weight: 700;
+            color: var(--resume-accent);
+            font-size: 10.5pt;
+        }
+
+        .resume-project-date {
+            display: table-cell;
+            text-align: right;
+            font-style: italic;
+            color: var(--resume-text);
+            opacity: 0.75;
+            font-size: 9pt;
+        }
+
+        .resume-bullets {
+            margin: 0 0 8px 0;
+            padding-left: 18px;
+            color: var(--resume-text);
+        }
+
+        .resume-bullets li {
+            margin-bottom: 3px;
+            text-align: justify;
+            font-size: 9.5pt;
+        }
+
+        .resume-highlight {
+            font-weight: 700;
+            color: var(--resume-accent);
+        }
+
+        /* DYNAMIC SPRING ALERTS (TOAST) */
+        .custom-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            transform: translateY(120px) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+        }
+        .custom-toast.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* ATMOSPHERIC BACKGROUND SYSTEM (FIXED HIERARCHY) */
+        .video-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10; 
+            overflow: hidden;
+            pointer-events: none;
+            background-color: #04070e; 
+            transition: background-color 0.5s ease;
+        }
+        body.light-theme .video-bg-container {
+            background-color: #f6f8fc; 
+        }
+
+        .bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.32; 
+            filter: grayscale(10%) brightness(85%) contrast(105%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+        }
+        body.light-theme .bg-video {
+            opacity: 0.22; 
+            filter: grayscale(15%) brightness(105%) contrast(95%);
+        }
+
+        #techCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -8;
+            opacity: 0.4;
+            transition: opacity 0.5s ease;
+        }
+        body.light-theme #techCanvas {
+            opacity: 0.25;
+        }
+
+        .video-bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, rgba(7, 10, 19, 0.25) 0%, rgba(7, 10, 19, 0.72) 100%);
+            z-index: -7;
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        body.light-theme .video-bg-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(246, 248, 252, 0.25) 0%, rgba(246, 248, 252, 0.65) 100%);
+        }
+
+        /* DYNAMIC ACCENT CHIPS */
+        .accent-chip {
+            width: 28px;
+            height: 28px;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.2s ease;
+            border: 2px solid transparent;
+        }
+        .accent-chip:hover {
+            transform: scale(1.15);
+        }
+        .accent-chip.active {
+            border-color: #6366f1;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+        }
+
+        /* PRINT CONFIGURATION (Ensures clean solid print out) */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0;
+            }
+            .no-print, .video-bg-container, .video-bg-overlay {
+                display: none !important;
+            }
+            .paper-preview {
+                background: #ffffff !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                min-height: auto !important;
+                /* Force explicit print colors for variables */
+                --resume-text: #222222 !important;
+                --resume-accent: #000000 !important;
+                --resume-title: #000000 !important;
+                --resume-border: #dddddd !important;
+            }
+            .resume-skills-table td {
+                border-bottom: 1px solid #dddddd !important;
+            }
+        }
+</style>
+</head>
+<body class="min-h-screen pb-16">
+
+    <!-- DUAL-ENGINE BACKGROUND CANVAS & COMMENTED VIDEO BACKUPS -->
+    <div class="video-bg-container no-print">
+        <canvas id="techCanvas"></canvas>
+        <video autoplay loop muted playsinline id="bgVideo" class="bg-video">
+            <!-- 
+              STABLE VIDEO BACKUPS (HIGH-AVAILABILITY PROGRESSIVE MP4 LINKS)
+              1. Vimeo Coding Closeup: https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164
+              2. Typing Coding Hands: https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-developer-typing-on-a-keyboard-32695-large.mp4
+              3. Technology Abstract Data: https://cdn.coverr.co/videos/sfco/the-hands-of-a-programmer-typing-on-a-keyboard-7129/preview/the-hands-of-a-programmer-typing-on-a-keyboard-7129.mp4
+            -->
+            <!-- ACTIVE HIGH QUALITY CODING BACKUP (Open CORS playback) -->
+            <source src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-developer-typing-on-a-keyboard-32695-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-bg-overlay no-print"></div>
+
+    <header class="no-print glass-nav sticky top-0 z-50 px-6 py-3.5 shadow-2xl">
+        <div class="max-w-[1550px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-tr from-brand-600 to-indigo-400 p-2.5 rounded-2xl text-white shadow-lg shadow-indigo-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-extrabold tracking-tight flex items-center gap-2">
+                        <span class="text-slate-100 body-text-swap font-heading">Shafiq Bhatti</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 bg-brand-500/15 text-indigo-400 rounded-full border border-brand-500/30">Workspace Studio</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-400 font-medium">Engineered with high fidelity controls and instant synchronization.</p>
+                </div>
+            </div>
+
+            <!-- Header Operations Area -->
+            <div class="flex flex-wrap items-center gap-2.5">
+                <!-- Theme toggle -->
+                <button onclick="toggleTheme()" class="flex items-center justify-center bg-slate-800/60 hover:bg-slate-700/60 text-amber-400 px-3 py-3 rounded-xl text-sm font-semibold transition-all duration-300 border border-slate-700/40 shadow-md" title="Toggle Light/Dark Theme">
+                    <i id="themeToggleIcon" class="fas fa-sun text-base"></i>
+                </button>
+
+                <!-- Video control -->
+                <button onclick="toggleVideo()" class="flex items-center gap-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-300 hover:text-white px-3.5 py-3 rounded-xl text-xs font-bold transition-all duration-300 border border-slate-700/40 shadow-md">
+                    <i id="videoIcon" class="fas fa-pause text-brand-500"></i>
+                    <span id="videoBtnText" class="hidden sm:inline">Pause Motion</span>
+                </button>
+
+                <!-- Copy styled version -->
+                <button onclick="copyFormattedHTML()" class="flex items-center gap-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 hover:text-white px-4 py-3 rounded-xl text-xs font-bold transition-all duration-300 border border-slate-700/40 shadow-md">
+                    <i class="fas fa-copy text-brand-500"></i>
+                    <span>Copy for Word</span>
+                </button>
+
+                <!-- Export functions -->
+                <button onclick="downloadWordFile()" class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-lg shadow-indigo-950/40 border border-indigo-500/20">
+                    <i class="fas fa-file-word"></i>
+                    <span>Download Word</span>
+                </button>
+
+                <button onclick="window.print()" class="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-4 py-3 rounded-xl text-xs font-bold transition-all duration-300 shadow-lg shadow-emerald-950/40 border border-emerald-500/20">
+                    <i class="fas fa-print"></i>
+                    <span>Save PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE CONTAINER -->
+    <main class="max-w-[1550px] mx-auto px-4 md:px-6 mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
+        
+        <!-- LEFT PANEL: CUSTOMIZER & EDITOR -->
+        <section class="no-print lg:col-span-5 space-y-4 max-h-[84vh] overflow-y-auto pr-1.5 custom-scrollbar">
+            
+            <div class="glass-panel rounded-2xl p-5 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-teal-500"></div>
+                
+                <!-- THEME THEME PALETTE CUSTOMIZER -->
+                <div class="mb-4 bg-slate-900/40 dark:bg-slate-950/40 p-3.5 rounded-xl border border-white/5">
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+                        <i class="fas fa-palette text-indigo-400"></i>
+                        <span>Resume Accent Color Theme</span>
+                    </h4>
+                    <div class="flex items-center gap-3">
+                        <div onclick="setAccent('#0f172a', '#4f46e5', this)" class="accent-chip active bg-slate-900" title="Classic Slate & Indigo"></div>
+                        <div onclick="setAccent('#1e3a8a', '#2563eb', this)" class="accent-chip bg-blue-800" title="Corporate Blue"></div>
+                        <div onclick="setAccent('#064e3b', '#059669', this)" class="accent-chip bg-emerald-800" title="Modern Green"></div>
+                        <div onclick="setAccent('#581c87', '#9333ea', this)" class="accent-chip bg-purple-800" title="Elegance Purple"></div>
+                        <div onclick="setAccent('#78350f', '#d97706', this)" class="accent-chip bg-amber-800" title="Creative Bronze"></div>
+                        <div onclick="setAccent('#111827', '#111827', this)" class="accent-chip bg-black" title="Classic Monochromatic"></div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 mb-3 border-b border-slate-800/40 pb-3">
+                    <i class="fas fa-sliders-h text-brand-500 text-lg animate-pulse"></i>
+                    <h3 class="text-sm font-extrabold font-heading text-slate-100 body-text-swap">Workstation Terminal</h3>
+                </div>
+                
+                <!-- ACCORDION INPUT MODULES -->
+                <div class="space-y-3">
+                    
+                    <!-- SECTION 1: PERSONAL INFORMATION -->
+                    <details class="group glass-details rounded-xl overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-id-card text-brand-500"></i> 1. Contact & Identity Header
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Full Name</label>
+                                <input type="text" id="editName" value="Shafiq Bhatti" oninput="updateField('resume-name', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Target Job Title</label>
+                                <input type="text" id="editTitle" value="Full Stack Web Developer" oninput="updateField('resume-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Location</label>
+                                    <input type="text" id="editAddress" value="Karachi, Pakistan" oninput="updateField('val-address', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Contact Number</label>
+                                    <input type="text" id="editPhone" value="+92 300 1234567" oninput="updateField('val-phone', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Email Address</label>
+                                <input type="email" id="editEmail" value="shafiqbhatti.dev@email.com" oninput="updateEmailLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GitHub Address</label>
+                                    <input type="text" id="editGithub" value="github.com/shafiq-bhatti" oninput="updateGithubLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Portfolio Link</label>
+                                    <input type="text" id="editPortfolio" value="shafiqbhatti.dev" oninput="updatePortfolioLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 2: SUMMARY -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-file-alt text-brand-500"></i> 2. Executive Summary
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 bg-white/[0.01]">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Summary Statement</label>
+                            <textarea id="editSummary" rows="4" oninput="updateField('resume-summary', this.value)" class="w-full glass-input rounded-lg px-3 py-2 leading-relaxed">Passionate Full Stack Web Developer with expertise in HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, React.js, PHP, Laravel, Node.js, Express.js, MySQL, and MongoDB. Experienced in designing responsive, user-friendly, and high-performance web applications. Strong problem-solving skills, clean coding practices, and a continuous learning mindset with growing experience in AI-powered development tools.</textarea>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 3: TECHNICAL SKILLS -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-code text-brand-500"></i> 3. Technical Core Matrix
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3.5 bg-white/[0.01]">
+                            <div class="grid grid-cols-1 gap-3">
+                                <!-- Frontend -->
+                                <div>
+                                    <input type="text" id="editSkillCat1" value="Frontend" oninput="updateField('skill-cat-1', this.value)" class="glass-input rounded-t-lg px-3 py-1.5 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList1" value="HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, React.js" oninput="updateField('skill-list-1', this.value)" class="glass-input rounded-b-lg px-3 py-2 text-xs w-full">
+                                </div>
+                                <!-- Backend -->
+                                <div>
+                                    <input type="text" id="editSkillCat2" value="Backend" oninput="updateField('skill-cat-2', this.value)" class="glass-input rounded-t-lg px-3 py-1.5 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList2" value="PHP, Laravel, Node.js, Express.js" oninput="updateField('skill-list-2', this.value)" class="glass-input rounded-b-lg px-3 py-2 text-xs w-full">
+                                </div>
+                                <!-- Database -->
+                                <div>
+                                    <input type="text" id="editSkillCat3" value="Database" oninput="updateField('skill-cat-3', this.value)" class="glass-input rounded-t-lg px-3 py-1.5 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList3" value="MySQL, MongoDB" oninput="updateField('skill-list-3', this.value)" class="glass-input rounded-b-lg px-3 py-2 text-xs w-full">
+                                </div>
+                                <!-- Tools -->
+                                <div>
+                                    <input type="text" id="editSkillCat4" value="Tools & AI" oninput="updateField('skill-cat-4', this.value)" class="glass-input rounded-t-lg px-3 py-1.5 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList4" value="Git, GitHub, VS Code, Postman, Figma (Basic), ChatGPT, Gemini" oninput="updateField('skill-list-4', this.value)" class="glass-input rounded-b-lg px-3 py-2 text-xs w-full">
+                                </div>
+                                <!-- Additional Core -->
+                                <div>
+                                    <input type="text" id="editSkillCat5" value="Core Expertise" oninput="updateField('skill-cat-5', this.value)" class="glass-input rounded-t-lg px-3 py-1.5 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList5" value="Responsive Website Development, RESTful APIs, Clean Architecture, Portfolio Website" oninput="updateField('skill-list-5', this.value)" class="glass-input rounded-b-lg px-3 py-2 text-xs w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 4: PROJECTS -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-folder-open text-brand-500"></i> 4. Projects & Deployments
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-5 bg-white/[0.01]">
+                            
+                            <!-- Project Block 1 -->
+                            <div class="space-y-2 pb-4 border-b border-white/5">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">Project Module #1</span>
+                                    <input type="text" value="Recent" oninput="updateField('p1-date', this.value)" class="glass-input rounded px-2 py-0.5 text-[10px] w-16 text-right">
+                                </div>
+                                <input type="text" value="Digital QR Menu System (Laravel Project)" oninput="updateField('p1-title', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs font-semibold">
+                                
+                                <div class="space-y-1.5 pl-2.5 border-l-2 border-indigo-500/40">
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Backend Engineering:" oninput="updateField('p1-b1-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Built dynamic menu management system with subcategories and items." oninput="updateField('p1-b1-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Database Schema:" oninput="updateField('p1-b2-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Engineered relational databases with complex tables using MySQL." oninput="updateField('p1-b2-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Client Usability:" oninput="updateField('p1-b3-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Crafted extremely responsive UI dashboards for restaurant customers." oninput="updateField('p1-b3-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Block 2 -->
+                            <div class="space-y-2 pb-4 border-b border-white/5">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">Project Module #2</span>
+                                    <input type="text" value="Recent" oninput="updateField('p2-date', this.value)" class="glass-input rounded px-2 py-0.5 text-[10px] w-16 text-right">
+                                </div>
+                                <input type="text" value="E-Commerce Web Application" oninput="updateField('p2-title', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs font-semibold">
+                                
+                                <div class="space-y-1.5 pl-2.5 border-l-2 border-indigo-500/40">
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Backend Integration:" oninput="updateField('p2-b1-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Formulated clean APIs, user authentication, and stripe gateway pipelines." oninput="updateField('p2-b1-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Responsive Interface:" oninput="updateField('p2-b2-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Developed responsive catalog layout pages with robust filter widgets." oninput="updateField('p2-b2-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Block 3 -->
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider">Project Module #3</span>
+                                    <input type="text" value="Recent" oninput="updateField('p3-date', this.value)" class="glass-input rounded px-2 py-0.5 text-[10px] w-16 text-right">
+                                </div>
+                                <input type="text" value="Personal Developer Portfolio" oninput="updateField('p3-title', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs font-semibold">
+                                
+                                <div class="space-y-1.5 pl-2.5 border-l-2 border-indigo-500/40">
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Frontend Design:" oninput="updateField('p3-b1-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Assembled pixel-perfect portfolio UI using modern React and Tailwind." oninput="updateField('p3-b1-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-1.5 items-center">
+                                        <input type="text" value="Code Pipeline:" oninput="updateField('p3-b2-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-[11px] font-bold text-indigo-400">
+                                        <input type="text" value="Utilized Git/GitHub version control workflows to deploy live web apps." oninput="updateField('p3-b2-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-[11px]">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </details>
+
+                    <!-- SECTION 5: CURRENT ACTIVITIES -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-bullseye text-brand-500"></i> 5. Current Focus & Roadmap
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div class="grid grid-cols-12 gap-2 items-center">
+                                <input type="text" value="Advanced Projects:" oninput="updateField('focus-1-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-xs font-bold text-indigo-400">
+                                <input type="text" value="Actively building highly modular e-commerce engines and portfolio hubs." oninput="updateField('focus-1-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-xs">
+                            </div>
+                            <div class="grid grid-cols-12 gap-2 items-center">
+                                <input type="text" value="AI Productivity:" oninput="updateField('focus-2-hl', this.value)" class="col-span-4 glass-input rounded px-2 py-1 text-xs font-bold text-indigo-400">
+                                <input type="text" value="Leveraging AI (ChatGPT & Gemini) to accelerate testing and code reviews." oninput="updateField('focus-2-txt', this.value)" class="col-span-8 glass-input rounded px-2 py-1 text-xs">
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 6: ACADEMIC HISTORY -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-graduation-cap text-brand-500"></i> 6. Education Details
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Degree Name</label>
+                                <input type="text" id="editEduDegree" value="Bachelor of Science in Computer Science (BSCS)" oninput="updateField('edu-degree', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Institution & State</label>
+                                <input type="text" id="editEduMeta" value="In Progress / Karachi, PK" oninput="updateField('edu-meta', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Relevant Highlights</label>
+                                <input type="text" id="editEduCoursework" value="Relevant Coursework: Web Engineering, Database Systems, Software Design" oninput="updateField('edu-coursework', this.value)" class="w-full glass-input rounded-lg px-3 py-2">
+                            </div>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <!-- ADVISORY STATS CARD -->
+            <div class="glass-panel rounded-2xl p-4 shadow-xl text-[11px] relative overflow-hidden">
+                <div class="absolute left-0 top-0 h-full w-1 bg-indigo-500"></div>
+                <h4 class="font-extrabold text-slate-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5 font-heading">
+                    <i class="fas fa-info-circle text-brand-500"></i>
+                    <span>Real-Time Processing Node</span>
+                </h4>
+                <p class="leading-relaxed opacity-80">Changes are immediately applied directly to the document DOM. Printing handles color styles flawlessly.</p>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: IMMUTABLE PREMIUM A4 PREVIEW -->
+        <section class="col-span-1 lg:col-span-7 overflow-x-auto pb-10">
+            <div id="resume-container-id" class="paper-preview">
+                
+                <div class="resume-body" id="printable-area">
+                    
+                    <!-- HEADER CONTAINER -->
+                    <div class="resume-header">
+                        <div class="resume-name font-heading" id="resume-name">Shafiq Bhatti</div>
+                        <div class="resume-title" id="resume-title">Full Stack Web Developer</div>
+                        <div class="resume-contact">
+                            <span id="val-address">Karachi, Pakistan</span> &nbsp;|&nbsp; 
+                            <span id="val-phone">+92 300 1234567</span> &nbsp;|&nbsp; 
+                            <a id="val-email" href="mailto:shafiqbhatti.dev@email.com">shafiqbhatti.dev@email.com</a>
+                        </div>
+                        <div class="resume-contact">
+                            GitHub: <a href="https://github.com/shafiq-bhatti" target="_blank" id="val-github">github.com/shafiq-bhatti</a> &nbsp;|&nbsp; 
+                            Portfolio: <a href="https://shafiqbhatti.dev" target="_blank" id="val-portfolio">shafiqbhatti.dev</a>
+                        </div>
+                    </div>
+
+                    <!-- SUMMARY BLOCK -->
+                    <div class="resume-section-title">Professional Summary</div>
+                    <p class="resume-summary-text" id="resume-summary">
+                        Passionate Full Stack Web Developer with expertise in HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, React.js, PHP, Laravel, Node.js, Express.js, MySQL, and MongoDB. Experienced in designing responsive, user-friendly, and high-performance web applications. Strong problem-solving skills, clean coding practices, and a continuous learning mindset with growing experience in AI-powered development tools.
+                    </p>
+
+                    <!-- TECHNICAL MATRICES -->
+                    <div class="resume-section-title">Technical Skills</div>
+                    <table class="resume-skills-table">
+                        <tr>
+                            <td class="resume-skills-category" id="skill-cat-1">Frontend</td>
+                            <td class="resume-skills-list" id="skill-list-1">HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, React.js</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category" id="skill-cat-2">Backend</td>
+                            <td class="resume-skills-list" id="skill-list-2">PHP, Laravel, Node.js, Express.js</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category" id="skill-cat-3">Database</td>
+                            <td class="resume-skills-list" id="skill-list-3">MySQL, MongoDB</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category" id="skill-cat-4">Tools & AI</td>
+                            <td class="resume-skills-list" id="skill-list-4">Git, GitHub, VS Code, Postman, Figma (Basic), ChatGPT, Gemini</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category" id="skill-cat-5">Core Expertise</td>
+                            <td class="resume-skills-list" id="skill-list-5">Responsive Website Development, RESTful APIs, Clean Architecture, Portfolio Website</td>
+                        </tr>
+                    </table>
+
+                    <!-- PROJECTS BLOCK -->
+                    <div class="resume-section-title">Projects & Developments</div>
+
+                    <!-- Project Module 1 -->
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title" id="p1-title">Digital QR Menu System (Laravel Project)</span>
+                            <span class="resume-project-date" id="p1-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight" id="p1-b1-hl">Backend Engineering:</span> <span id="p1-b1-txt">Built dynamic menu management system with subcategories and items.</span></li>
+                            <li><span class="resume-highlight" id="p1-b2-hl">Database Schema:</span> <span id="p1-b2-txt">Engineered relational databases with complex tables using MySQL.</span></li>
+                            <li><span class="resume-highlight" id="p1-b3-hl">Client Usability:</span> <span id="p1-b3-txt">Crafted extremely responsive UI dashboards for restaurant customers.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Module 2 -->
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title" id="p2-title">E-Commerce Web Application</span>
+                            <span class="resume-project-date" id="p2-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight" id="p2-b1-hl">Backend Integration:</span> <span id="p2-b1-txt">Formulated clean APIs, user authentication, and stripe gateway pipelines.</span></li>
+                            <li><span class="resume-highlight" id="p2-b2-hl">Responsive Interface:</span> <span id="p2-b2-txt">Developed responsive catalog layout pages with robust filter widgets.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Project Module 3 -->
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title" id="p3-title">Personal Developer Portfolio</span>
+                            <span class="resume-project-date" id="p3-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight" id="p3-b1-hl">Frontend Design:</span> <span id="p3-b1-txt">Assembled pixel-perfect portfolio UI using modern React and Tailwind.</span></li>
+                            <li><span class="resume-highlight" id="p3-b2-hl">Code Pipeline:</span> <span id="p3-b2-txt">Utilized Git/GitHub version control workflows to deploy live web apps.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- CURRENT ROADMAP BLOCK -->
+                    <div class="resume-section-title">Current Activities & Focus</div>
+                    <ul class="resume-bullets">
+                        <li><span class="resume-highlight" id="focus-1-hl">Advanced Projects:</span> <span id="focus-1-txt">Actively building highly modular e-commerce engines and portfolio hubs.</span></li>
+                        <li><span class="resume-highlight" id="focus-2-hl">AI Productivity:</span> <span id="focus-2-txt">Leveraging AI (ChatGPT & Gemini) to accelerate testing and code reviews.</span></li>
+                    </ul>
+
+                    <!-- ACADEMIC MATRIX -->
+                    <div class="resume-section-title">Education</div>
+                    <div class="resume-project-block" style="margin-bottom: 0;">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title" id="edu-degree">Bachelor of Science in Computer Science (BSCS)</span>
+                            <span class="resume-project-date" id="edu-meta">In Progress / Karachi, PK</span>
+                        </div>
+                        <div style="color: #475569; font-size: 9.5pt; margin-top: 2px;" id="edu-coursework">Relevant Coursework: Web Engineering, Database Systems, Software Design</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING NOTIFICATION DECK (TOAST ENGINE) -->
+    <div id="toast" class="custom-toast flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-5 py-3.5 rounded-2xl shadow-xl shadow-indigo-950/40 border border-indigo-400/20 font-bold text-sm">
+        <i class="fas fa-check-circle text-teal-400 text-lg"></i>
+        <span id="toast-msg">Workspace synchronized.</span>
+    </div>
+
+    <!-- SCRIPT RUNTIMES -->
+    <script>
+        let isLightTheme = false;
+        const canvas = document.getElementById('techCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let isAnimationPlaying = true;
+
+        // PLEXUS ENGINE (FUTURISTIC FLOATING SYSTEM CONSTALLATIONS)
+        let particles = [];
+        const maxParticles = 40;
+        const maxDistance = 110;
+        let mouseX = null;
+        let mouseY = null;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 1.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges smoothly
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = isLightTheme ? 'rgba(79, 70, 229, 0.45)' : 'rgba(99, 102, 241, 0.65)';
+                ctx.fill();
+            }
+        }
+
+        // INITIALIZE SYSTEM ASSETS
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            particles = [];
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        // RENDER CONSTELLATION NODE FRAME
+        function drawCanvas() {
+            if (!isAnimationPlaying) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Connect particles
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                p1.update();
+                p1.draw();
+
+                // Mouse proximity gravity repulsion
+                if (mouseX !== null && mouseY !== null) {
+                    const dx = p1.x - mouseX;
+                    const dy = p1.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        p1.x += (dx / dist) * 1.5;
+                        p1.y += (dy / dist) * 1.5;
+                    }
+                }
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const alpha = (1 - dist / maxDistance) * 0.25;
+                        ctx.strokeStyle = isLightTheme ? `rgba(79, 70, 229, ${alpha})` : `rgba(99, 102, 241, ${alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(drawCanvas);
+        }
+
+        // MOUSE AND TOUCH EVENTS
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouseX = null;
+            mouseY = null;
+        });
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+        });
+
+        // INITIATE ENGINES
+        initCanvas();
+        drawCanvas();
+
+        // ACCENT COLOR INTERFACE ADAPTER
+        function setAccent(colorAccent, colorTitle, element) {
+            document.documentElement.style.setProperty('--resume-accent', colorAccent);
+            document.documentElement.style.setProperty('--resume-title', colorTitle);
+            
+            // Toggle active visual states on accents
+            document.querySelectorAll('.accent-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            element.classList.add('active');
+            showToast("Design colors successfully customized!");
+        }
+
+        // PREMIUM THEME ADAPTER (LIGHT & DARK DUAL GLASS)
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggleIcon = document.getElementById('themeToggleIcon');
+            const swapTexts = document.querySelectorAll('.body-text-swap');
+
+            isLightTheme = !isLightTheme;
+
+            if (isLightTheme) {
+                body.classList.add('light-theme');
+                themeToggleIcon.className = "fas fa-moon text-base text-indigo-700";
+                swapTexts.forEach(el => {
+                    el.classList.remove('text-slate-100');
+                    el.classList.add('text-slate-800');
+                });
+                showToast("Studio Warm-Light Engine Engaged!");
+            } else {
+                body.classList.remove('light-theme');
+                themeToggleIcon.className = "fas fa-sun text-base text-amber-400";
+                swapTexts.forEach(el => {
+                    el.classList.remove('text-slate-800');
+                    el.classList.add('text-slate-100');
+                });
+                showToast("Studio Dark-Fusion Engine Engaged!");
+            }
+        }
+
+        // REAL-TIME SYNCHRONIZATION MECHANISM
+        function updateField(elementId, value) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.innerText = value;
+            }
+        }
+
+        // SPECIAL TRANSFERS FOR LINKS
+        function updateEmailLink(value) {
+            const emailEl = document.getElementById('val-email');
+            if(emailEl) {
+                emailEl.innerText = value;
+                emailEl.href = `mailto:${value}`;
+            }
+        }
+
+        function updatePortfolioLink(value) {
+            const portfolioEl = document.getElementById('val-portfolio');
+            if(portfolioEl) {
+                portfolioEl.innerText = value;
+                portfolioEl.href = value.startsWith('http') ? value : `https://${value}`;
+            }
+        }
+
+        function updateGithubLink(value) {
+            const githubEl = document.getElementById('val-github');
+            if(githubEl) {
+                githubEl.innerText = value;
+                githubEl.href = value.startsWith('http') ? value : `https://${value}`;
+            }
+        }
+
+        // SPRINGY WORKSPACE ALERTS
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
+        }
+
+        // MS WORD STYLING INTEGRATOR
+        async function copyFormattedHTML() {
+            const sourceElement = document.getElementById('printable-area');
+            const selectedAccent = getComputedStyle(document.documentElement).getPropertyValue('--resume-accent').trim();
+            const selectedTitle = getComputedStyle(document.documentElement).getPropertyValue('--resume-title').trim();
+            
+            const docStyle = `
+                <style>
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1a202c; line-height: 1.5; }
+                    .resume-header { text-align: center; border-bottom: 2px solid ${selectedAccent}; padding-bottom: 15px; margin-bottom: 20px; }
+                    .resume-name { font-size: 26pt; font-weight: bold; color: ${selectedAccent}; text-transform: uppercase; margin:0 0 5px 0;}
+                    .resume-title { font-size: 13pt; font-weight: bold; color: ${selectedTitle}; text-transform: uppercase; margin:0 0 12px 0;}
+                    .resume-contact { font-size: 10pt; color: #475569; margin: 5px 0; }
+                    .resume-section-title { font-size: 12pt; font-weight: bold; color: ${selectedAccent}; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-top: 22px; margin-bottom: 12px; text-transform: uppercase; }
+                    .resume-summary-text { color: #334155; margin-bottom: 15px; }
+                    .resume-skills-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+                    .resume-skills-table td { padding: 6px 10px; vertical-align: top; border-bottom: 1px solid #f1f5f9; }
+                    .resume-skills-category { font-weight: bold; color: ${selectedAccent}; width: 25%; }
+                    .resume-skills-list { color: #334155; width: 75%; }
+                    .resume-project-block { margin-bottom: 18px; }
+                    .resume-project-header { display: table; width: 100%; margin-bottom: 5px; }
+                    .resume-project-title { display: table-cell; font-weight: bold; color: #0f172a; font-size: 11pt; }
+                    .resume-project-date { display: table-cell; text-align: right; font-style: italic; color: #64748b; font-size: 9.5pt; }
+                    .resume-bullets { margin: 0 0 10px 0; padding-left: 20px; color: #334155; }
+                    .resume-bullets li { margin-bottom: 4px; }
+                    .resume-highlight { font-weight: bold; color: ${selectedAccent}; }
+                </style>
+            `;
+            
+            const cleanHTML = '<html><head>' + docStyle + '</head><body>' + sourceElement.innerHTML + '</body></html>';
+            
+            try {
+                const clipboardItem = new ClipboardItem({
+                    "text/html": new Blob([cleanHTML], { type: "text/html" }),
+                    "text/plain": new Blob([sourceElement.innerText], { type: "text/plain" })
+                });
+                await navigator.clipboard.write([clipboardItem]);
+                showToast("Prinstine MS Word formatting copied! Paste inside MS Word (Ctrl+V).");
+            } catch (err) {
+                // Clipboard fallback
+                const dummy = document.createElement("div");
+                dummy.style.position = "absolute";
+                dummy.style.left = "-9999px";
+                dummy.innerHTML = cleanHTML;
+                document.body.appendChild(dummy);
+                
+                const range = document.createRange();
+                range.selectNode(dummy);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast("Copied safely via legacy transfer clipboard!");
+            }
+        }
+
+        // DYNAMIC MS WORD GENERATOR & TRIGGER
+        function downloadWordFile() {
+            const sourceElement = document.getElementById('printable-area');
+            const nameVal = document.getElementById('editName').value || 'Shafiq_Bhatti';
+            const filename = `${nameVal.replace(/\s+/g, '_')}_Resume.doc`;
+            
+            const selectedAccent = getComputedStyle(document.documentElement).getPropertyValue('--resume-accent').trim();
+            const selectedTitle = getComputedStyle(document.documentElement).getPropertyValue('--resume-title').trim();
+
+            const docStyle = `
+                <style>
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1a202c; line-height: 1.5; }
+                    .resume-header { text-align: center; border-bottom: 2px solid ${selectedAccent}; padding-bottom: 15px; margin-bottom: 20px; }
+                    .resume-name { font-size: 26pt; font-weight: bold; color: ${selectedAccent}; text-transform: uppercase; margin:0 0 5px 0;}
+                    .resume-title { font-size: 13pt; font-weight: bold; color: ${selectedTitle}; text-transform: uppercase; margin:0 0 12px 0;}
+                    .resume-contact { font-size: 10pt; color: #475569; margin: 5px 0; }
+                    .resume-section-title { font-size: 12pt; font-weight: bold; color: ${selectedAccent}; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-top: 22px; margin-bottom: 12px; text-transform: uppercase; }
+                    .resume-summary-text { color: #334155; margin-bottom: 15px; }
+                    .resume-skills-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+                    .resume-skills-table td { padding: 6px 10px; vertical-align: top; border-bottom: 1px solid #f1f5f9; }
+                    .resume-skills-category { font-weight: bold; color: ${selectedAccent}; width: 25%; }
+                    .resume-skills-list { color: #334155; width: 75%; }
+                    .resume-project-block { margin-bottom: 18px; }
+                    .resume-project-header { display: table; width: 100%; margin-bottom: 5px; }
+                    .resume-project-title { display: table-cell; font-weight: bold; color: #0f172a; font-size: 11pt; }
+                    .resume-project-date { display: table-cell; text-align: right; font-style: italic; color: #64748b; font-size: 9.5pt; }
+                    .resume-bullets { margin: 0 0 10px 0; padding-left: 20px; color: #334155; }
+                    .resume-bullets li { margin-bottom: 4px; }
+                    .resume-highlight { font-weight: bold; color: ${selectedAccent}; }
+                </style>
+            `;
+            
+            const content = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Print</w:View>
+                            <w:Zoom>100</w:Zoom>
+                            <w:DoNotOptimizeForBrowser/>
+                        </w:WordDocument>
+                    </xml>
+                    <![endif]-->
+                    <meta charset="utf-8">
+                    ${docStyle}
+                </head>
+                <body>
+                    ${sourceElement.innerHTML}
+                </body>
+                </html>
+            `;
+            
+            const blob = new Blob(['\ufeff' + content], {
+                type: 'application/msword'
+            });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Word (.doc) file download successfully initiated!");
+        }
+
+        // BROWSER INITIAL AUTOPLAY TRIGGERS
+        window.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('bgVideo');
+            if (video) {
+                video.muted = true;
+                video.play().catch(error => {
+                    console.log("Autoplay policy blocked video, initializing force-activation trigger.");
+                    
+                    const resumeOnAction = () => {
+                        video.play().then(() => {
+                            document.removeEventListener('click', resumeOnAction);
+                            document.removeEventListener('touchstart', resumeOnAction);
+                        }).catch(e => console.log(e));
+                    };
+                    document.addEventListener('click', resumeOnAction);
+                    document.addEventListener('touchstart', resumeOnAction);
+                });
+            }
+        });
+
+        // PLAYBACK AND MOTION CONSTRAINTS
+        function toggleVideo() {
+            const video = document.getElementById('bgVideo');
+            const videoIcon = document.getElementById('videoIcon');
+            const videoBtnText = document.getElementById('videoBtnText');
+            
+            if (video.paused && !isAnimationPlaying) {
+                video.play().catch(() => {});
+                isAnimationPlaying = true;
+                drawCanvas();
+                videoIcon.className = "fas fa-pause text-brand-500";
+                videoBtnText.innerText = "Pause Motion";
+                showToast("Workspace canvas motion resumed.");
+            } else {
+                video.pause();
+                isAnimationPlaying = false;
+                cancelAnimationFrame(animationFrameId);
+                videoIcon.className = "fas fa-play text-amber-500";
+                videoBtnText.innerText = "Play Motion";
+                showToast("Workspace keyboard animations paused.");
+            }
+        }
+    </script>
+</body>
+</html>

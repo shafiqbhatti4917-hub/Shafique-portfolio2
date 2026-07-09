@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafiq Bhatti - Enterprise CV Workstation</title>
+    
+    <!-- Tailwind CSS for high-fidelity responsive utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for modern visual UI vector icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Premium Fonts: Plus Jakarta Sans for Headers and Inter for UI fields -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Customizing Tailwind design tokens for absolute visual mastery
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            950: '#070a13'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: #f1f5f9;
+            transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        body.light-theme {
+            color: #0f172a;
+        }
+
+        /* CUSTOM MODERN SCROLLBARS */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 99px;
+            border: 2px solid transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.45);
+        }
+        body.light-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        /* TRANSLUCENT GLASSMORPHISM SYSTEM (FROSTED SLEEK GLASS) */
+        .glass-nav {
+            background: rgba(7, 10, 19, 0.45);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+        body.light-theme .glass-nav {
+            background: rgba(255, 255, 255, 0.45);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .glass-panel {
+            background: rgba(13, 18, 33, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body.light-theme .glass-panel {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+            box-shadow: 0 15px 45px -12px rgba(99, 102, 241, 0.06);
+        }
+
+        /* HIGH-END TEXT FIELD AND SELECT CONTROLS */
+        .glass-input {
+            background: rgba(7, 10, 19, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-input:focus {
+            background: rgba(7, 10, 19, 0.75);
+            border-color: #6366f1;
+            box-shadow: 0 0 14px rgba(99, 102, 241, 0.3);
+            outline: none;
+        }
+        body.light-theme .glass-input {
+            background: rgba(248, 250, 252, 0.65);
+            border: 1px solid rgba(99, 102, 241, 0.18);
+            color: #0f172a;
+        }
+        body.light-theme .glass-input:focus {
+            background: #ffffff;
+            border-color: #4f46e5;
+            box-shadow: 0 0 16px rgba(79, 70, 229, 0.2);
+        }
+
+        .glass-details {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-details:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        body.light-theme .glass-details {
+            background: rgba(99, 102, 241, 0.03);
+            border: 1px solid rgba(99, 102, 241, 0.08);
+        }
+        body.light-theme .glass-details:hover {
+            background: rgba(99, 102, 241, 0.06);
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .caret-icon {
+            transform: rotate(180deg);
+            color: #6366f1;
+        }
+
+        /* VIRTUAL PRINTABLE PAPER DESIGN (A4 DIMENSIONS & PROPORTIONS) */
+        .paper-preview {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm 18mm;
+            margin: 0 auto;
+            background-color: #ffffff;
+            color: #1e293b;
+            box-sizing: border-box;
+            position: relative;
+            border-radius: 6px;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+            transform-origin: top center;
+        }
+        body.light-theme .paper-preview {
+            box-shadow: 0 20px 50px -10px rgba(99, 102, 241, 0.12);
+        }
+
+        /* DYNAMIC ACCENT ENGINE (CSS Variables manipulated by Custom Palette Picker) */
+        :root {
+            --cv-accent: #0f172a; /* Slate primary default */
+            --cv-accent-bg: #f1f5f9;
+            --cv-text: #334155;
+            --cv-title: #4f46e5;   /* Indigo secondary default */
+        }
+
+        /* PRINT-SAFE PROFESSIONAL TYPOGRAPHY FOR CV CONTAINER */
+        .cv-body {
+            font-family: 'Arial', 'Calibri', sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: var(--cv-text);
+        }
+
+        .cv-header {
+            text-align: center;
+            border-bottom: 2px solid var(--cv-accent);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .cv-name {
+            font-size: 24pt;
+            font-weight: 800;
+            color: var(--cv-accent);
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .cv-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--cv-title); 
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .cv-contact {
+            font-size: 9pt;
+            color: #475569;
+            margin: 4px 0;
+        }
+
+        .cv-contact a {
+            color: var(--cv-title);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cv-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .cv-section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--cv-accent);
+            border-bottom: 1.5px solid #cbd5e1;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Clean tabular alignments */
+        .cv-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+        }
+
+        .cv-table td {
+            padding: 6px 8px;
+            vertical-align: top;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 9.5pt;
+        }
+
+        .cv-table th {
+            padding: 8px 8px;
+            text-align: left;
+            background-color: #f8fafc;
+            font-weight: 700;
+            color: var(--cv-accent);
+            border-bottom: 1.5px solid #cbd5e1;
+            font-size: 9.5pt;
+        }
+
+        .cv-category-label {
+            font-weight: 700;
+            color: var(--cv-accent);
+            width: 25%;
+        }
+
+        .cv-bullets {
+            margin: 0 0 8px 0;
+            padding-left: 18px;
+            color: #334155;
+        }
+
+        .cv-bullets li {
+            margin-bottom: 4px;
+            text-align: justify;
+            font-size: 9.5pt;
+        }
+
+        .cv-highlight {
+            font-weight: 700;
+            color: var(--cv-accent);
+        }
+
+        .custom-toast {
+            position: fixed;
+            bottom: 84px;
+            right: 24px;
+            transform: translateY(120px) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
+        }
+        @media (min-width: 768px) {
+            .custom-toast {
+                bottom: 24px;
+            }
+        }
+        .custom-toast.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .video-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10;
+            overflow: hidden;
+            pointer-events: none;
+            background-color: #070a13;
+            transition: background-color 0.5s ease;
+        }
+        body.light-theme .video-bg-container {
+            background-color: #f6f8fc;
+        }
+
+        .bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.32;
+            filter: grayscale(10%) brightness(85%) contrast(105%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -9;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+        }
+        body.light-theme .bg-video {
+            opacity: 0.22;
+            filter: grayscale(15%) brightness(105%) contrast(95%);
+        }
+
+        #techCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -8;
+            opacity: 0.4;
+            transition: opacity 0.5s ease;
+        }
+        body.light-theme #techCanvas {
+            opacity: 0.25;
+        }
+
+        .video-bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, rgba(7, 10, 19, 0.25) 0%, rgba(7, 10, 19, 0.72) 100%);
+            z-index: -7;
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+        body.light-theme .video-bg-overlay {
+            background: radial-gradient(circle at 50% 50%, rgba(246, 248, 252, 0.25) 0%, rgba(246, 248, 252, 0.65) 100%);
+        }
+
+        .accent-chip {
+            width: 28px;
+            height: 28px;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.2s ease;
+            border: 2px solid transparent;
+        }
+        .accent-chip:hover {
+            transform: scale(1.15);
+        }
+        .accent-chip.active {
+            border-color: #6366f1;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 1023px) {
+            .mobile-hidden {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .paper-preview {
+                width: 100% !important;
+                min-height: auto !important;
+                padding: 10mm 8mm !important;
+                box-shadow: none !important;
+            }
+            .cv-table td, .cv-table th {
+                padding: 5px 4px !important;
+                font-size: 8.5pt !important;
+            }
+            .cv-category-label {
+                width: 32% !important;
+            }
+        }
+
+        @media print {
+            body {
+                background: none !important;
+                color: #000 !important;
+                padding: 0;
+            }
+            .no-print, .video-bg-container, .video-bg-overlay {
+                display: none !important;
+            }
+            .paper-preview {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                min-height: auto !important;
+                transform: scale(1) !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24 md:pb-16">
+
+    <div class="video-bg-container no-print">
+        <canvas id="techCanvas"></canvas>
+        <video autoplay loop muted playsinline id="bgVideo" class="bg-video">
+            <!-- 
+              STABLE VIDEO MP4 CDN FALLBACKS FOR HIGH FIDELITY ATMOSPHERE
+              1. Technical developer setup: https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-developer-typing-on-a-keyboard-32695-large.mp4
+              2. Dark workspace server room: https://assets.mixkit.co/videos/preview/mixkit-server-rack-lights-flashing-close-up-42045-large.mp4
+            -->
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-developer-typing-on-a-keyboard-32695-large.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-server-rack-lights-flashing-close-up-42045-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-bg-overlay no-print"></div>
+
+    <header class="no-print glass-nav sticky top-0 z-50 px-4 md:px-6 py-3.5 shadow-2xl">
+        <div class="max-w-[1550px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-tr from-brand-600 to-indigo-400 p-2.5 rounded-2xl text-white shadow-lg shadow-indigo-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-base md:text-lg font-extrabold tracking-tight flex items-center justify-center md:justify-start gap-2">
+                        <span class="text-slate-100 body-text-swap font-heading" id="bannerName">Shafiq Bhatti</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 bg-brand-500/15 text-indigo-400 rounded-full border border-brand-500/30">CV Studio</span>
+                    </h1>
+                    <p class="text-[10px] md:text-[11px] text-slate-400 font-medium">Create and customize formal Curriculums with hand-to-hand real-time updates.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-2">
+                <!-- Theme toggle switch -->
+                <button onclick="toggleTheme()" class="flex items-center justify-center bg-slate-800/60 hover:bg-slate-700/60 text-amber-400 p-2.5 md:px-3 md:py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 border border-slate-700/40 shadow-md" title="Toggle Light/Dark Theme">
+                    <i id="themeToggleIcon" class="fas fa-sun text-base"></i>
+                </button>
+
+                <!-- Dual-Engine video loop state control -->
+                <button onclick="toggleVideo()" class="flex items-center gap-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-300 hover:text-white px-3 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 border border-slate-700/40 shadow-md">
+                    <i id="videoIcon" class="fas fa-pause text-brand-500"></i>
+                    <span id="videoBtnText" class="hidden sm:inline">Pause Motion</span>
+                </button>
+
+                <!-- Copy styled code version -->
+                <button onclick="copyFormattedHTML()" class="flex items-center gap-2 bg-slate-800/60 hover:bg-slate-700/60 text-slate-200 hover:text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 border border-slate-700/40 shadow-md">
+                    <i class="fas fa-copy text-brand-500"></i>
+                    <span>Copy for Word</span>
+                </button>
+
+                <!-- Export function modules -->
+                <button onclick="downloadWordFile()" class="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 shadow-lg shadow-indigo-950/40 border border-indigo-500/20">
+                    <i class="fas fa-file-word"></i>
+                    <span>Download Word</span>
+                </button>
+
+                <button onclick="window.print()" class="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 shadow-lg shadow-emerald-950/40 border border-emerald-500/20">
+                    <i class="fas fa-print"></i>
+                    <span>Save PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE CONTAINER -->
+    <main class="max-w-[1550px] mx-auto px-4 md:px-6 mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
+        
+        <!-- LEFT PANEL: COMPLETE LIVE CV CUSTOMIZER FORM -->
+        <section id="editor-column" class="lg:col-span-5 space-y-4 max-h-[82vh] overflow-y-auto pr-1.5 custom-scrollbar">
+            
+            <div class="glass-panel rounded-2xl p-5 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-teal-500"></div>
+                
+                <!-- THEME ACCENT PALETTE PICKER CHIPS -->
+                <div class="mb-4 bg-slate-900/40 dark:bg-slate-950/40 p-3.5 rounded-xl border border-white/5">
+                    <h4 class="text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+                        <i class="fas fa-palette text-indigo-400"></i>
+                        <span>CV Color Scheme Picker</span>
+                    </h4>
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <div onclick="setAccent('#0f172a', '#4f46e5', this)" class="accent-chip active bg-slate-900" title="Classic Slate & Indigo"></div>
+                        <div onclick="setAccent('#0a2540', '#00d4b2', this)" class="accent-chip bg-blue-950" title="Oxford Ocean"></div>
+                        <div onclick="setAccent('#4a0e17', '#b91c1c', this)" class="accent-chip bg-red-950" title="Imperial Burgundy"></div>
+                        <div onclick="setAccent('#064e3b', '#059669', this)" class="accent-chip bg-emerald-800" title="Modern Green"></div>
+                        <div onclick="setAccent('#2e1065', '#a855f7', this)" class="accent-chip bg-purple-950" title="Elegance Royal"></div>
+                        <div onclick="setAccent('#111827', '#374151', this)" class="accent-chip bg-black" title="Classic Monochromatic"></div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 mb-3 border-b border-slate-800/40 pb-3">
+                    <i class="fas fa-sliders-h text-brand-500 text-base animate-pulse"></i>
+                    <h3 class="text-xs font-extrabold uppercase tracking-widest font-heading text-slate-100 body-text-swap">Curriculum Vitae Workstation</h3>
+                </div>
+                
+                <!-- COMPLETE ACCORDION INPUT BLOCKS -->
+                <div class="space-y-3">
+                    
+                    <!-- SECTION 1: IDENTITY & CONTACT INFORMATION -->
+                    <details class="group glass-details rounded-xl overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-id-card text-brand-500"></i> 1. Personal & Contact Identity
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Full Name</label>
+                                <input type="text" id="editName" value="Shafiq Bhatti" oninput="updateField('cv-name', this.value); updateField('bannerName', this.value);" class="w-full glass-input rounded-lg px-3 py-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Target Professional Title</label>
+                                <input type="text" id="editTitle" value="Full Stack Web Developer" oninput="updateField('cv-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Current Address</label>
+                                    <input type="text" id="editAddress" value="Karachi, Sindh, Pakistan" oninput="updateField('val-address', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Phone Number</label>
+                                    <input type="text" id="editPhone" value="+92 300 1234567" oninput="updateField('val-phone', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Email Address</label>
+                                <input type="email" id="editEmail" value="shafiqbhatti.dev@email.com" oninput="updateEmailLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">GitHub Profile</label>
+                                    <input type="text" id="editGithub" value="github.com/shafiq-bhatti" oninput="updateGithubLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Portfolio Link</label>
+                                    <input type="text" id="editPortfolio" value="shafiqbhatti.dev" oninput="updatePortfolioLink(this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 2: PERSONAL METRIC PROFILE (CV ONLY) -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-user text-brand-500"></i> 2. Detailed Personal Profile
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Father's Name</label>
+                                    <input type="text" id="editFather" value="Muhammad Rafiq Bhatti" oninput="updateField('val-father', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Date of Birth</label>
+                                    <input type="text" id="editDob" value="October 14, 2002" oninput="updateField('val-dob', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Nationality</label>
+                                    <input type="text" id="editNationality" value="Pakistani" oninput="updateField('val-nationality', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Marital Status</label>
+                                    <input type="text" id="editMarital" value="Single" oninput="updateField('val-marital', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Languages Spoken</label>
+                                <input type="text" id="editLanguages" value="English, Urdu, Sindhi" oninput="updateField('val-languages', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5">
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 3: CAREER OBJECTIVE -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-bullseye text-brand-500"></i> 3. Career Objective
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 bg-white/[0.01]">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Career Objective Statement</label>
+                            <textarea id="editObjective" rows="4" oninput="updateField('cv-objective', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5 leading-relaxed">To secure a challenging position as a Full Stack Web Developer in a progressive organization where I can leverage my expertise in HTML5, CSS3, JavaScript, React.js, PHP, Laravel, and database technologies to engineer robust web solutions, contribute to dynamic project objectives, and continuously refine my computational design competencies.</textarea>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 4: COMPREHENSIVE EDUCATION HISTORY (CV TIMELINE) -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-graduation-cap text-brand-500"></i> 4. Academic History Timeline
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-4 bg-white/[0.01]">
+                            <!-- Degree 1 -->
+                            <div class="space-y-2 pb-3 border-b border-white/5">
+                                <span class="text-[10px] font-bold text-indigo-400 uppercase">Degree 1: Graduation</span>
+                                <input type="text" value="BS in Computer Science" oninput="updateField('edu-d1-deg', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs mb-1" placeholder="Degree/Certificate">
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="text" value="University of Karachi" oninput="updateField('edu-d1-inst', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Institution">
+                                    <input type="text" value="In Progress" oninput="updateField('edu-d1-year', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Year">
+                                </div>
+                            </div>
+                            <!-- Degree 2 -->
+                            <div class="space-y-2 pb-3 border-b border-white/5">
+                                <span class="text-[10px] font-bold text-indigo-400 uppercase">Degree 2: Intermediate</span>
+                                <input type="text" value="FSc Pre-Engineering" oninput="updateField('edu-d2-deg', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs mb-1" placeholder="Degree/Certificate">
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="text" value="Govt. Degree Science College, Karachi" oninput="updateField('edu-d2-inst', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Institution">
+                                    <input type="text" value="2020" oninput="updateField('edu-d2-year', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Year">
+                                </div>
+                            </div>
+                            <!-- Degree 3 -->
+                            <div class="space-y-2">
+                                <span class="text-[10px] font-bold text-indigo-400 uppercase">Degree 3: Matriculation</span>
+                                <input type="text" value="Matriculation in Computer Science" oninput="updateField('edu-d3-deg', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs mb-1" placeholder="Degree/Certificate">
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="text" value="The Educators School, Karachi" oninput="updateField('edu-d3-inst', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Institution">
+                                    <input type="text" value="2018" oninput="updateField('edu-d3-year', this.value)" class="glass-input rounded-lg px-3 py-1.5 text-xs" placeholder="Year">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 5: PROFESSIONAL WORK EXPERIENCE -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-briefcase text-brand-500"></i> 5. Employment History
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-4 bg-white/[0.01]">
+                            <!-- Experience 1 -->
+                            <div class="space-y-2 pb-3 border-b border-white/5">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-bold text-indigo-400 uppercase">Job Entry #1</span>
+                                    <input type="text" value="2024 - Present" oninput="updateField('exp-e1-date', this.value)" class="glass-input rounded px-2.5 py-1 text-[10px] w-24 text-right">
+                                </div>
+                                <input type="text" value="Junior Full Stack Web Developer" oninput="updateField('exp-e1-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs font-bold">
+                                <input type="text" value="ByteCode Software Agency, Karachi" oninput="updateField('exp-e1-comp', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs">
+                                <div class="space-y-1.5 pl-2.5 border-l-2 border-indigo-500/40">
+                                    <input type="text" value="Develop and maintain responsive, modular web applications using Laravel & React." oninput="updateField('exp-e1-b1', this.value)" class="w-full glass-input rounded px-2 py-1 text-[11px]">
+                                    <input type="text" value="Optimize relational database queries in MySQL to scale API resource loading times." oninput="updateField('exp-e1-b2', this.value)" class="w-full glass-input rounded px-2 py-1 text-[11px]">
+                                </div>
+                            </div>
+                            <!-- Experience 2 -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-bold text-indigo-400 uppercase">Job Entry #2</span>
+                                    <input type="text" value="2022 - 2024" oninput="updateField('exp-e2-date', this.value)" class="glass-input rounded px-2.5 py-1 text-[10px] w-24 text-right">
+                                </div>
+                                <input type="text" value="Freelance Frontend Developer" oninput="updateField('exp-e2-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs font-bold">
+                                <input type="text" value="Fiverr & Upwork Platforms" oninput="updateField('exp-e2-comp', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs">
+                                <div class="space-y-1.5 pl-2.5 border-l-2 border-indigo-500/40">
+                                    <input type="text" value="Designed custom responsive portfolio sites and commercial landing pages using Tailwind CSS." oninput="updateField('exp-e2-b1', this.value)" class="w-full glass-input rounded px-2 py-1 text-[11px]">
+                                    <input type="text" value="Implemented cross-browser compatible layouts and optimized site components." oninput="updateField('exp-e2-b2', this.value)" class="w-full glass-input rounded px-2 py-1 text-[11px]">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 6: TECHNICAL & CORE SKILLS MATRIX -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-code text-brand-500"></i> 6. Technical Skills Matrix
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3.5 bg-white/[0.01]">
+                            <div class="grid grid-cols-1 gap-3">
+                                <div>
+                                    <input type="text" id="editSkillCat1" value="Frontend Tech Stack" oninput="updateField('skill-cat-1', this.value)" class="glass-input rounded-t-lg px-3 py-2 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList1" value="HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, React.js" oninput="updateField('skill-list-1', this.value)" class="glass-input rounded-b-lg px-3 py-2.5 text-xs w-full">
+                                </div>
+                                <div>
+                                    <input type="text" id="editSkillCat2" value="Backend & Database" oninput="updateField('skill-cat-2', this.value)" class="glass-input rounded-t-lg px-3 py-2 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList2" value="PHP, Laravel, Node.js, Express.js, MySQL, MongoDB" oninput="updateField('skill-list-2', this.value)" class="glass-input rounded-b-lg px-3 py-2.5 text-xs w-full">
+                                </div>
+                                <div>
+                                    <input type="text" id="editSkillCat3" value="Development Tools" oninput="updateField('skill-cat-3', this.value)" class="glass-input rounded-t-lg px-3 py-2 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList3" value="Git, GitHub, VS Code, Postman, Figma (Basic), XAMPP" oninput="updateField('skill-list-3', this.value)" class="glass-input rounded-b-lg px-3 py-2.5 text-xs w-full">
+                                </div>
+                                <div>
+                                    <input type="text" id="editSkillCat4" value="Professional Strengths" oninput="updateField('skill-cat-4', this.value)" class="glass-input rounded-t-lg px-3 py-2 text-xs font-bold w-full border-b-0">
+                                    <input type="text" id="editSkillList4" value="Responsive Web Designing, RESTful API Construction, Object Oriented Programming, System Debugging" oninput="updateField('skill-list-4', this.value)" class="glass-input rounded-b-lg px-3 py-2.5 text-xs w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 7: PROJECTS & DEPLOYMENTS -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-folder-open text-brand-500"></i> 7. Dynamic CV Projects
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-5 bg-white/[0.01]">
+                            <!-- Project 1 -->
+                            <div class="space-y-2 pb-3 border-b border-white/5">
+                                <input type="text" value="Digital QR Menu System (Laravel Project)" oninput="updateField('proj-p1-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs font-bold">
+                                <input type="text" value="Constructed a dynamic restaurant food menu system featuring custom QR routing and relational tables." oninput="updateField('proj-p1-desc', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs">
+                            </div>
+                            <!-- Project 2 -->
+                            <div class="space-y-2 pb-3 border-b border-white/5">
+                                <input type="text" value="Interactive E-Commerce Platform" oninput="updateField('proj-p2-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs font-bold">
+                                <input type="text" value="Engineered responsive commercial dashboard systems with seamless client catalogs." oninput="updateField('proj-p2-desc', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs">
+                            </div>
+                            <!-- Project 3 -->
+                            <div class="space-y-2">
+                                <input type="text" value="Personal Developer Portfolio" oninput="updateField('proj-p3-title', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs font-bold">
+                                <input type="text" value="Built an absolute aesthetic personal developer profile showcase using modern Tailwind utility designs." oninput="updateField('proj-p3-desc', this.value)" class="w-full glass-input rounded-lg px-3 py-1.5 text-xs">
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 8: CERTIFICATIONS & PROFESSIONAL TRAININGS -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-certificate text-brand-500"></i> 8. Certifications & Trainings
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Certification Entry #1</label>
+                                <input type="text" id="editCert1" value="Microsoft Certified Solution Associate - Web Development" oninput="updateField('val-cert-1', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Certification Entry #2</label>
+                                <input type="text" id="editCert2" value="Advanced Full Stack Development Core Coursework (Bano Qabil)" oninput="updateField('val-cert-2', this.value)" class="w-full glass-input rounded-lg px-3 py-2 text-xs">
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 9: FORMAL DECLARATION -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-file-contract text-brand-500"></i> 9. Declaration Statement
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 space-y-3 bg-white/[0.01]">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Declaration Content</label>
+                                <textarea id="editDeclaration" rows="3" oninput="updateField('val-declaration', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5 text-xs leading-relaxed">I hereby solemnly declare that all the information and credentials provided above are true, complete, and correct to the best of my knowledge, and beliefs.</textarea>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- SECTION 10: REFERENCES -->
+                    <details class="group glass-details rounded-xl overflow-hidden">
+                        <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none">
+                            <span class="text-xs font-bold flex items-center gap-2 text-slate-200">
+                                <i class="fas fa-address-book text-brand-500"></i> 10. References
+                            </span>
+                            <i class="fas fa-chevron-down text-[10px] opacity-60 transition-transform duration-300 caret-icon"></i>
+                        </summary>
+                        <div class="p-4 border-t border-white/5 bg-white/[0.01]">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">References Statement</label>
+                            <input type="text" id="editRef" value="Will be furnished upon request." oninput="updateField('val-ref', this.value)" class="w-full glass-input rounded-lg px-3 py-2.5 text-xs">
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <!-- ADVISORY SYSTEM LOGS -->
+            <div class="glass-panel rounded-2xl p-4 shadow-xl text-[11px] relative overflow-hidden">
+                <div class="absolute left-0 top-0 h-full w-1 bg-indigo-500"></div>
+                <h4 class="font-extrabold text-slate-200 uppercase tracking-wider mb-1.5 flex items-center gap-1.5 font-heading">
+                    <i class="fas fa-info-circle text-brand-500"></i>
+                    <span>Real-Time CV Processing Node</span>
+                </h4>
+                <p class="leading-relaxed opacity-80">All changes instantly compile directly to the virtual CV preview. Printing triggers clean academic-standard layout matrices.</p>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: IMMUTABLE PREMIUM A4 PRINT PREVIEW -->
+        <section id="preview-column" class="mobile-hidden lg:col-span-7 overflow-x-auto pb-10 flex justify-center">
+            <div id="cv-container-id" class="paper-preview">
+                
+                <div class="cv-body" id="printable-area">
+                    
+                    <!-- HEADER WRAPPER -->
+                    <div class="cv-header">
+                        <div class="cv-name font-heading" id="cv-name">Shafiq Bhatti</div>
+                        <div class="cv-title" id="cv-title">Full Stack Web Developer</div>
+                        <div class="cv-contact">
+                            <span id="val-address">Karachi, Sindh, Pakistan</span> &nbsp;|&nbsp; 
+                            <span id="val-phone">+92 300 1234567</span> &nbsp;|&nbsp; 
+                            <a id="val-email" href="mailto:shafiqbhatti.dev@email.com">shafiqbhatti.dev@email.com</a>
+                        </div>
+                        <div class="cv-contact">
+                            GitHub: <a href="https://github.com/shafiq-bhatti" target="_blank" id="val-github">github.com/shafiq-bhatti</a> &nbsp;|&nbsp; 
+                            Portfolio: <a href="https://shafiqbhatti.dev" target="_blank" id="val-portfolio">shafiqbhatti.dev</a>
+                        </div>
+                    </div>
+
+                    <!-- OBJECTIVE BLOCK -->
+                    <div class="cv-section-title">Career Objective</div>
+                    <p class="resume-summary-text" id="cv-objective" style="text-align: justify; margin-top: 0; margin-bottom: 12px; font-size: 9.5pt;">
+                        To secure a challenging position as a Full Stack Web Developer in a progressive organization where I can leverage my expertise in HTML5, CSS3, JavaScript, React.js, PHP, Laravel, and database technologies to engineer robust web solutions, contribute to dynamic project objectives, and continuously refine my computational design competencies.
+                    </p>
+
+                    <!-- DETAILED PERSONAL PROFILE SECTION (CV SPECIFIC) -->
+                    <div class="cv-section-title">Personal Profile</div>
+                    <table class="cv-table">
+                        <tr>
+                            <td class="cv-category-label" style="width: 30%;">Father's Name</td>
+                            <td id="val-father" style="width: 70%;">Muhammad Rafiq Bhatti</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label">Date of Birth</td>
+                            <td id="val-dob">October 14, 2002</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label">Nationality</td>
+                            <td id="val-nationality">Pakistani</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label">Marital Status</td>
+                            <td id="val-marital">Single</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label">Languages Spoken</td>
+                            <td id="val-languages">English, Urdu, Sindhi</td>
+                        </tr>
+                    </table>
+
+                    <!-- COMPREHENSIVE ACADEMIC HISTORY SECTION -->
+                    <div class="cv-section-title">Academic Qualifications</div>
+                    <table class="cv-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Degree/Certificate</th>
+                                <th style="width: 45%;">Institution</th>
+                                <th style="width: 15%;">Year</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="edu-d1-deg" class="cv-highlight">BS in Computer Science</td>
+                                <td id="edu-d1-inst">University of Karachi</td>
+                                <td id="edu-d1-year">In Progress</td>
+                            </tr>
+                            <tr>
+                                <td id="edu-d2-deg" class="cv-highlight">FSc Pre-Engineering</td>
+                                <td id="edu-d2-inst">Govt. Degree Science College, Karachi</td>
+                                <td id="edu-d2-year">2020</td>
+                            </tr>
+                            <tr>
+                                <td id="edu-d3-deg" class="cv-highlight">Matriculation in Computer Science</td>
+                                <td id="edu-d3-inst">The Educators School, Karachi</td>
+                                <td id="edu-d3-year">2018</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- SKILLS CORE MATRIX -->
+                    <div class="cv-section-title">Core Technical Capabilities</div>
+                    <table class="cv-table">
+                        <tr>
+                            <td class="cv-category-label" id="skill-cat-1">Frontend Tech Stack</td>
+                            <td id="skill-list-1">HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, React.js</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label" id="skill-cat-2">Backend & Database</td>
+                            <td id="skill-list-2">PHP, Laravel, Node.js, Express.js, MySQL, MongoDB</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label" id="skill-cat-3">Development Tools</td>
+                            <td id="skill-list-3">Git, GitHub, VS Code, Postman, Figma (Basic), XAMPP</td>
+                        </tr>
+                        <tr>
+                            <td class="cv-category-label" id="skill-cat-4">Professional Strengths</td>
+                            <td id="skill-list-4">Responsive Web Designing, RESTful API Construction, Object Oriented Programming, System Debugging</td>
+                        </tr>
+                    </table>
+
+                    <!-- EMPLOYMENT CHRONOLOGY SECTION -->
+                    <div class="cv-section-title">Employment History</div>
+                    
+                    <!-- Job Entry 1 -->
+                    <div class="resume-project-block" style="margin-bottom: 12px;">
+                        <div class="resume-project-header" style="display: table; width: 100%; margin-bottom: 4px;">
+                            <span class="resume-project-title" id="exp-e1-title" style="display: table-cell; font-weight: 700; color: #0f172a; font-size: 10pt;">Junior Full Stack Web Developer</span>
+                            <span class="resume-project-date" id="exp-e1-date" style="display: table-cell; text-align: right; font-style: italic; color: #64748b; font-size: 8.5pt;">2024 - Present</span>
+                        </div>
+                        <div style="font-size: 9pt; color: #475569; margin-bottom: 4px;" id="exp-e1-comp">ByteCode Software Agency, Karachi</div>
+                        <ul class="cv-bullets">
+                            <li id="exp-e1-b1">Develop and maintain responsive, modular web applications using Laravel & React.</li>
+                            <li id="exp-e1-b2">Optimize relational database queries in MySQL to scale API resource loading times.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job Entry 2 -->
+                    <div class="resume-project-block" style="margin-bottom: 12px;">
+                        <div class="resume-project-header" style="display: table; width: 100%; margin-bottom: 4px;">
+                            <span class="resume-project-title" id="exp-e2-title" style="display: table-cell; font-weight: 700; color: #0f172a; font-size: 10pt;">Freelance Frontend Developer</span>
+                            <span class="resume-project-date" id="exp-e2-date" style="display: table-cell; text-align: right; font-style: italic; color: #64748b; font-size: 8.5pt;">2022 - 2024</span>
+                        </div>
+                        <div style="font-size: 9pt; color: #475569; margin-bottom: 4px;" id="exp-e2-comp">Fiverr & Upwork Platforms</div>
+                        <ul class="cv-bullets">
+                            <li id="exp-e2-b1">Designed custom responsive portfolio sites and commercial landing pages using Tailwind CSS.</li>
+                            <li id="exp-e2-b2">Implemented cross-browser compatible layouts and optimized site components.</li>
+                        </ul>
+                    </div>
+
+                    <!-- PROJECTS SECTION -->
+                    <div class="cv-section-title">Key Projects & Developments</div>
+                    <ul class="cv-bullets" style="padding-left: 14px; list-style-type: none;">
+                        <li style="margin-bottom: 6px;">
+                            <span class="cv-highlight" id="proj-p1-title">Digital QR Menu System (Laravel Project):</span> 
+                            <span id="proj-p1-desc">Constructed a dynamic restaurant food menu system featuring custom QR routing and relational tables.</span>
+                        </li>
+                        <li style="margin-bottom: 6px;">
+                            <span class="cv-highlight" id="proj-p2-title">Interactive E-Commerce Platform:</span> 
+                            <span id="proj-p2-desc">Engineered responsive commercial dashboard systems with seamless client catalogs.</span>
+                        </li>
+                        <li>
+                            <span class="cv-highlight" id="proj-p3-title">Personal Developer Portfolio:</span> 
+                            <span id="proj-p3-desc">Built an absolute aesthetic personal developer profile showcase using modern Tailwind utility designs.</span>
+                        </li>
+                    </ul>
+
+                    <!-- CERTIFICATIONS SECTION -->
+                    <div class="cv-section-title">Professional Training & Certifications</div>
+                    <ul class="cv-bullets">
+                        <li id="val-cert-1">Microsoft Certified Solution Associate - Web Development</li>
+                        <li id="val-cert-2">Advanced Full Stack Development Core Coursework (Bano Qabil)</li>
+                    </ul>
+
+                    <!-- DECLARATION SECTION -->
+                    <div class="cv-section-title">Declaration</div>
+                    <p class="resume-summary-text" id="val-declaration" style="text-align: justify; margin-top: 0; margin-bottom: 12px; font-size: 9.5pt;">
+                        I hereby solemnly declare that all the information and credentials provided above are true, complete, and correct to the best of my knowledge, and beliefs.
+                    </p>
+
+                    <!-- REFERENCES SECTION -->
+                    <div class="cv-section-title">References</div>
+                    <div style="font-size: 9.5pt; color: #334155; padding-left: 4px;" id="val-ref">Will be furnished upon request.</div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING TAB SELECTOR FOR MOBILE ONLY -->
+    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 bg-slate-900/85 dark:bg-slate-950/85 backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-2xl lg:hidden no-print">
+        <button onclick="switchMobileTab('editor')" id="mob-editor-btn" class="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 bg-brand-600 text-white">
+            <i class="fas fa-edit"></i> <span>Editor</span>
+        </button>
+        <button onclick="switchMobileTab('preview')" id="mob-preview-btn" class="flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 text-slate-400">
+            <i class="fas fa-file-invoice"></i> <span>Live Preview</span>
+        </button>
+    </div>
+
+    <!-- TOAST ALERTS DIALOGUE SYSTEM -->
+    <div id="toast" class="custom-toast flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-5 py-3.5 rounded-2xl shadow-xl shadow-indigo-950/40 border border-indigo-400/20 font-bold text-sm">
+        <i class="fas fa-check-circle text-teal-400 text-lg"></i>
+        <span id="toast-msg">Workspace synchronized.</span>
+    </div>
+
+    <script>
+        let isLightTheme = false;
+        const canvas = document.getElementById('techCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let isAnimationPlaying = true;
+
+        // PLEXUS NETWORK ENGINE CONSTANTS
+        let particles = [];
+        const maxParticles = 45;
+        const maxDistance = 115;
+        let mouseX = null;
+        let mouseY = null;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.7;
+                this.vy = (Math.random() - 0.5) * 0.7;
+                this.radius = Math.random() * 2 + 1.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = isLightTheme ? 'rgba(79, 70, 229, 0.45)' : 'rgba(99, 102, 241, 0.65)';
+                ctx.fill();
+            }
+        }
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            particles = [];
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function drawCanvas() {
+            if (!isAnimationPlaying) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Connect constellation elements
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                p1.update();
+                p1.draw();
+
+                // Mouse gravity physics push away
+                if (mouseX !== null && mouseY !== null) {
+                    const dx = p1.x - mouseX;
+                    const dy = p1.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 140) {
+                        p1.x += (dx / dist) * 1.8;
+                        p1.y += (dy / dist) * 1.8;
+                    }
+                }
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        const alpha = (1 - dist / maxDistance) * 0.28;
+                        ctx.strokeStyle = isLightTheme ? `rgba(79, 70, 229, ${alpha})` : `rgba(99, 102, 241, ${alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(drawCanvas);
+        }
+
+        // CONSTELLATION INTERACTIVE EVENT LISTENERS
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouseX = null;
+            mouseY = null;
+        });
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+        });
+
+        initCanvas();
+        drawCanvas();
+
+        // DYNAMIC PREVIEW ACCENT COLOR SYSTEM
+        function setAccent(colorAccent, colorTitle, element) {
+            document.documentElement.style.setProperty('--cv-accent', colorAccent);
+            document.documentElement.style.setProperty('--cv-title', colorTitle);
+            
+            document.querySelectorAll('.accent-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            element.classList.add('active');
+            showToast("CV styling theme customized successfully!");
+        }
+
+        // GLASS-NAV LIGHT AND DARK TRANSITIONS
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggleIcon = document.getElementById('themeToggleIcon');
+            const swapTexts = document.querySelectorAll('.body-text-swap');
+
+            isLightTheme = !isLightTheme;
+
+            if (isLightTheme) {
+                body.classList.add('light-theme');
+                themeToggleIcon.className = "fas fa-moon text-base text-indigo-700";
+                swapTexts.forEach(el => {
+                    el.classList.remove('text-slate-100');
+                    el.classList.add('text-slate-800');
+                });
+                showToast("Studio Light Theme Enabled!");
+            } else {
+                body.classList.remove('light-theme');
+                themeToggleIcon.className = "fas fa-sun text-base text-amber-400";
+                swapTexts.forEach(el => {
+                    el.classList.remove('text-slate-800');
+                    el.classList.add('text-slate-100');
+                });
+                showToast("Studio Dark Theme Enabled!");
+            }
+        }
+
+        // MOBILE TAB SWITCHER LOGIC
+        function switchMobileTab(tab) {
+            const editorCol = document.getElementById('editor-column');
+            const previewCol = document.getElementById('preview-column');
+            const mobEditorBtn = document.getElementById('mob-editor-btn');
+            const mobPreviewBtn = document.getElementById('mob-preview-btn');
+
+            if (tab === 'editor') {
+                editorCol.classList.remove('mobile-hidden');
+                previewCol.classList.add('mobile-hidden');
+                mobEditorBtn.className = "flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 bg-brand-600 text-white";
+                mobPreviewBtn.className = "flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 text-slate-400";
+            } else {
+                editorCol.classList.add('mobile-hidden');
+                previewCol.classList.remove('mobile-hidden');
+                mobEditorBtn.className = "flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 text-slate-400";
+                mobPreviewBtn.className = "flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 bg-brand-600 text-white";
+            }
+        }
+
+        // DYNAMIC SYNC HANDLERS
+        function updateField(elementId, value) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.innerText = value;
+            }
+        }
+
+        function updateEmailLink(value) {
+            const emailEl = document.getElementById('val-email');
+            if(emailEl) {
+                emailEl.innerText = value;
+                emailEl.href = `mailto:${value}`;
+            }
+        }
+
+        function updatePortfolioLink(value) {
+            const portfolioEl = document.getElementById('val-portfolio');
+            if(portfolioEl) {
+                portfolioEl.innerText = value;
+                portfolioEl.href = value.startsWith('http') ? value : `https://${value}`;
+            }
+        }
+
+        function updateGithubLink(value) {
+            const githubEl = document.getElementById('val-github');
+            if(githubEl) {
+                githubEl.innerText = value;
+                githubEl.href = value.startsWith('http') ? value : `https://${value}`;
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
+        }
+
+        // DYNAMIC COPIER FOR MS WORD
+        async function copyFormattedHTML() {
+            const sourceElement = document.getElementById('printable-area');
+            const selectedAccent = getComputedStyle(document.documentElement).getPropertyValue('--cv-accent').trim();
+            const selectedTitle = getComputedStyle(document.documentElement).getPropertyValue('--cv-title').trim();
+            
+            const docStyle = `
+                <style>
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1e293b; line-height: 1.45; }
+                    .cv-header { text-align: center; border-bottom: 2px solid ${selectedAccent}; padding-bottom: 12px; margin-bottom: 16px; }
+                    .cv-name { font-size: 24pt; font-weight: bold; color: ${selectedAccent}; margin: 0 0 4px 0; text-transform: uppercase; }
+                    .cv-title { font-size: 12pt; font-weight: bold; color: ${selectedTitle}; margin: 0 0 10px 0; text-transform: uppercase; }
+                    .cv-contact { font-size: 9.5pt; color: #475569; margin: 4px 0; }
+                    .cv-section-title { font-size: 11pt; font-weight: bold; color: ${selectedAccent}; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 3px; margin-top: 18px; margin-bottom: 10px; text-transform: uppercase; }
+                    .cv-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+                    .cv-table td { padding: 5px 8px; vertical-align: top; border-bottom: 1px solid #f1f5f9; font-size: 9.5pt; }
+                    .cv-table th { padding: 6px 8px; text-align: left; background-color: #f8fafc; font-weight: bold; color: ${selectedAccent}; border-bottom: 1.5px solid #cbd5e1; font-size: 9.5pt; }
+                    .cv-category-label { font-weight: bold; color: ${selectedAccent}; width: 30%; }
+                    .cv-bullets { margin: 0 0 8px 0; padding-left: 18px; color: #334155; }
+                    .cv-bullets li { margin-bottom: 3px; font-size: 9.5pt; }
+                    .cv-highlight { font-weight: bold; color: ${selectedAccent}; }
+                </style>
+            `;
+            
+            const cleanHTML = '<html><head>' + docStyle + '</head><body>' + sourceElement.innerHTML + '</body></html>';
+            
+            try {
+                const clipboardItem = new ClipboardItem({
+                    "text/html": new Blob([cleanHTML], { type: "text/html" }),
+                    "text/plain": new Blob([sourceElement.innerText], { type: "text/plain" })
+                });
+                await navigator.clipboard.write([clipboardItem]);
+                showToast("CV styling copied successfully! Open Word and press Ctrl+V.");
+            } catch (err) {
+                const dummy = document.createElement("div");
+                dummy.style.position = "absolute";
+                dummy.style.left = "-9999px";
+                dummy.innerHTML = cleanHTML;
+                document.body.appendChild(dummy);
+                
+                const range = document.createRange();
+                range.selectNode(dummy);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast("CV Copied safely via legacy transfer clipboard!");
+            }
+        }
+
+        // DOWNLOAD WORD FILE (.DOC) BUILDER
+        function downloadWordFile() {
+            const sourceElement = document.getElementById('printable-area');
+            const nameVal = document.getElementById('editName').value || 'Shafiq_Bhatti';
+            const filename = `${nameVal.replace(/\s+/g, '_')}_CV.doc`;
+            
+            const selectedAccent = getComputedStyle(document.documentElement).getPropertyValue('--cv-accent').trim();
+            const selectedTitle = getComputedStyle(document.documentElement).getPropertyValue('--cv-title').trim();
+
+            const docStyle = `
+                <style>
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1e293b; line-height: 1.45; }
+                    .cv-header { text-align: center; border-bottom: 2px solid ${selectedAccent}; padding-bottom: 12px; margin-bottom: 16px; }
+                    .cv-name { font-size: 24pt; font-weight: bold; color: ${selectedAccent}; margin: 0 0 4px 0; text-transform: uppercase; }
+                    .cv-title { font-size: 12pt; font-weight: bold; color: ${selectedTitle}; margin: 0 0 10px 0; text-transform: uppercase; }
+                    .cv-contact { font-size: 9.5pt; color: #475569; margin: 4px 0; }
+                    .cv-section-title { font-size: 11pt; font-weight: bold; color: ${selectedAccent}; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 3px; margin-top: 18px; margin-bottom: 10px; text-transform: uppercase; }
+                    .cv-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+                    .cv-table td { padding: 5px 8px; vertical-align: top; border-bottom: 1px solid #f1f5f9; font-size: 9.5pt; }
+                    .cv-table th { padding: 6px 8px; text-align: left; background-color: #f8fafc; font-weight: bold; color: ${selectedAccent}; border-bottom: 1.5px solid #cbd5e1; font-size: 9.5pt; }
+                    .cv-category-label { font-weight: bold; color: ${selectedAccent}; width: 30%; }
+                    .cv-bullets { margin: 0 0 8px 0; padding-left: 18px; color: #334155; }
+                    .cv-bullets li { margin-bottom: 3px; font-size: 9.5pt; }
+                    .cv-highlight { font-weight: bold; color: ${selectedAccent}; }
+                </style>
+            `;
+            
+            const content = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Print</w:View>
+                            <w:Zoom>100</w:Zoom>
+                            <w:DoNotOptimizeForBrowser/>
+                        </w:WordDocument>
+                    </xml>
+                    <![endif]-->
+                    <meta charset="utf-8">
+                    ${docStyle}
+                </head>
+                <body>
+                    ${sourceElement.innerHTML}
+                </body>
+                </html>
+            `;
+            
+            const blob = new Blob(['\ufeff' + content], {
+                type: 'application/msword'
+            });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Word (.doc) file download successfully initiated!");
+        }
+
+        // WINDOW LOAD PROTECTION AUTOPLAY TRIGGER
+        window.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('bgVideo');
+            if (video) {
+                video.muted = true;
+                video.play().catch(error => {
+                    console.log("Autoplay policies caught loop. Active touch activation system initialized.");
+                    const resumeOnAction = () => {
+                        video.play().then(() => {
+                            document.removeEventListener('click', resumeOnAction);
+                            document.removeEventListener('touchstart', resumeOnAction);
+                        }).catch(e => console.log(e));
+                    };
+                    document.addEventListener('click', resumeOnAction);
+                    document.addEventListener('touchstart', resumeOnAction);
+                });
+            }
+        });
+
+        // PLAYBACK ENGINE CONTROLLER
+        function toggleVideo() {
+            const video = document.getElementById('bgVideo');
+            const videoIcon = document.getElementById('videoIcon');
+            const videoBtnText = document.getElementById('videoBtnText');
+            
+            if (video.paused && !isAnimationPlaying) {
+                video.play().catch(() => {});
+                isAnimationPlaying = true;
+                drawCanvas();
+                videoIcon.className = "fas fa-pause text-brand-500";
+                videoBtnText.innerText = "Pause Motion";
+                showToast("Workspace animations activated.");
+            } else {
+                video.pause();
+                isAnimationPlaying = false;
+                cancelAnimationFrame(animationFrameId);
+                videoIcon.className = "fas fa-play text-amber-500";
+                videoBtnText.innerText = "Play Motion";
+                showToast("Workspace animations paused.");
+            }
+        }
+    </script>
+</body>
+</html>

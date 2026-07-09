@@ -1,0 +1,143 @@
+﻿
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+                <head>
+                    <!--[if gte mso 9]>
+                    <xml>
+                        <w:WordDocument>
+                            <w:View>Print</w:View>
+                            <w:Zoom>100</w:Zoom>
+                            <w:DoNotOptimizeForBrowser/>
+                        </w:WordDocument>
+                    </xml>
+                    <![endif]-->
+                    <meta charset="utf-8">
+                    
+                <style>
+                    body { font-family: 'Calibri', 'Arial', sans-serif; font-size: 11pt; color: #1a202c; line-height: 1.5; }
+                    .resume-header { text-align: center; border-bottom: 2px solid #0f172a; padding-bottom: 15px; margin-bottom: 20px; }
+                    .resume-name { font-size: 26pt; font-weight: bold; color: #0f172a; text-transform: uppercase; margin:0 0 5px 0;}
+                    .resume-title { font-size: 13pt; font-weight: bold; color: #0284c7; text-transform: uppercase; margin:0 0 12px 0;}
+                    .resume-contact { font-size: 10pt; color: #475569; margin: 5px 0; }
+                    .resume-section-title { font-size: 12pt; font-weight: bold; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-top: 22px; margin-bottom: 12px; text-transform: uppercase; }
+                    .resume-summary-text { color: #334155; margin-bottom: 15px; }
+                    .resume-skills-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+                    .resume-skills-table td { padding: 6px 10px; vertical-align: top; border-bottom: 1px solid #f1f5f9; }
+                    .resume-skills-category { font-weight: bold; color: #0f172a; width: 25%; }
+                    .resume-skills-list { color: #334155; width: 75%; }
+                    .resume-project-block { margin-bottom: 18px; }
+                    .resume-project-header { display: table; width: 100%; margin-bottom: 5px; }
+                    .resume-project-title { display: table-cell; font-weight: bold; color: #0f172a; font-size: 11pt; }
+                    .resume-project-date { display: table-cell; text-align: right; font-style: italic; color: #64748b; font-size: 9.5pt; }
+                    .resume-bullets { margin: 0 0 10px 0; padding-left: 20px; color: #334155; }
+                    .resume-bullets li { margin-bottom: 4px; }
+                    .resume-highlight { font-weight: bold; color: #0f172a; }
+                </style>
+            
+                </head>
+                <body>
+                    
+                    
+                    <!-- HEADER -->
+                    <div class="resume-header">
+                        <div class="resume-name" id="resume-name">Shafiq Bhatti</div>
+                        <div class="resume-title" id="resume-title">Full Stack Web Developer</div>
+                        <div class="resume-contact">
+                            <span id="val-address">Karachi, Pakistan</span> &nbsp;|&nbsp; 
+                            <span id="val-phone">+92 300 1234567</span> &nbsp;|&nbsp; 
+                            <a id="val-email" href="mailto:shafiqbhatti.dev@email.com">shafiqbhatti.dev@email.com</a>
+                        </div>
+                        <div class="resume-contact">
+                            GitHub: <a href="https://github.com/shafiq-bhatti" target="_blank">github.com/shafiq-bhatti</a> &nbsp;|&nbsp; 
+                            Portfolio: <a href="#" target="_blank" id="val-portfolio">shafiqbhatti.dev</a>
+                        </div>
+                    </div>
+
+                    <!-- SUMMARY -->
+                    <div class="resume-section-title">Professional Summary</div>
+                    <p class="resume-summary-text">
+                        Passionate Full Stack Web Developer with expertise in HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, React.js, PHP, Laravel, Node.js, Express.js, MySQL, and MongoDB. Experienced in designing responsive, user-friendly, and high-performance web applications. Strong problem-solving skills, clean coding practices, and a continuous learning mindset with growing experience in AI-powered development tools.
+                    </p>
+
+                    <!-- TECHNICAL SKILLS -->
+                    <div class="resume-section-title">Technical Skills</div>
+                    <table class="resume-skills-table">
+                        <tbody><tr>
+                            <td class="resume-skills-category">Frontend</td>
+                            <td class="resume-skills-list">HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Tailwind CSS, React.js</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category">Backend</td>
+                            <td class="resume-skills-list">PHP, Laravel, Node.js, Express.js</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category">Databases</td>
+                            <td class="resume-skills-list">MySQL, MongoDB</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category">Tools &amp; AI</td>
+                            <td class="resume-skills-list">Git, GitHub, VS Code, Postman, Figma (Basic), ChatGPT, Gemini, AI Tools</td>
+                        </tr>
+                        <tr>
+                            <td class="resume-skills-category">Core Expertise</td>
+                            <td class="resume-skills-list">Responsive Website Development, RESTful APIs, Clean Architecture, Database Design</td>
+                        </tr>
+                    </tbody></table>
+
+                    <!-- PROJECTS -->
+                    <div class="resume-section-title">Projects &amp; Developments</div>
+
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title">Digital QR Menu System (Laravel Project)</span>
+                            <span class="resume-project-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight">Backend Engineering:</span> Built and structured a complete QR-code-based menu management system using Laravel to handle rapid dynamic menu routing.</li>
+                            <li><span class="resume-highlight">Database Schema:</span> Engineered optimized relational database workflows in MySQL for real-time category updates and secure admin control.</li>
+                            <li><span class="resume-highlight">Client-Side Usability:</span> Designed an adaptive, responsive client panel allowing mobile users to instantly scan, load, and filter restaurant menus.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title">E-Commerce Web Application</span>
+                            <span class="resume-project-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight">Full Stack Architecture:</span> Formulated full stack logic ensuring secure checkout pipelines, state management, and seamless dynamic product displays.</li>
+                            <li><span class="resume-highlight">Responsive Design:</span> Integrated responsive mobile-first UI grids using Bootstrap 5 and Tailwind CSS to guarantee visual consistency on all device viewports.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-project-block">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title">Personal Developer Portfolio</span>
+                            <span class="resume-project-date">Recent</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li><span class="resume-highlight">Modern Frontend:</span> Designed and developed a premium dark-themed portfolio using React.js and modern visual component systems.</li>
+                            <li><span class="resume-highlight">Version Control:</span> Utilized advanced Git workflow and GitHub repos for continuous integration, code auditing, and hosting pipelines.</li>
+                        </ul>
+                    </div>
+
+                    <!-- CURRENT ACTIVITES -->
+                    <div class="resume-section-title">Current Activities &amp; Focus</div>
+                    <ul class="resume-bullets">
+                        <li><span class="resume-highlight">Advanced Concepts:</span> Actively building intermediate and complex project layers to strengthen Full-Stack implementation.</li>
+                        <li><span class="resume-highlight">AI-Assisted Efficiency:</span> Mastering AI tools (ChatGPT, Gemini) to optimize backend code modularity, write test scripts, and accelerate development cycles.</li>
+                    </ul>
+
+                    <!-- EDUCATION -->
+                    <div class="resume-section-title">Education</div>
+                    <div class="resume-project-block" style="margin-bottom: 0;">
+                        <div class="resume-project-header">
+                            <span class="resume-project-title">Bachelor of Science in Computer Science (BSCS)</span>
+                            <span class="resume-project-date">In Progress / Karachi, PK</span>
+                        </div>
+                        <div style="color: #475569; font-size: 10pt; margin-top: 2px;">Relevant Coursework: Web Engineering, Database Systems, Software Design</div>
+                    </div>
+
+                
+                </body>
+                </html>
+            
